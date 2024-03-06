@@ -1,5 +1,7 @@
 # Reice
 
+coming soon..
+
 ## Contributing
 
 We welcome contributions to enhance the functionality and usability of this utility. Feel free to submit issues for bug reports or feature requests, and create pull requests to suggest improvements or fixes.
