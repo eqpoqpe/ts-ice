@@ -1,6 +1,6 @@
 {
   "name": "reice",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "🍨 The easy way to make your clean REST client library.",
   "exports": {
