@@ -2,7 +2,9 @@
 
 coming soon..
 
-# Examples
+## Examples
+
+Easily define your client
 
 ```typescript
 import axios from "axios";
@@ -28,7 +30,7 @@ const myClient = new MyClient({
 await myClient.sayHello("hello");
 ```
 
-[👉 more examples](./examples/)
+👉 [more examples](./examples/)
 
 ## Contributing
 
