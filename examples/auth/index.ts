@@ -23,7 +23,7 @@ export class MyClient extends ReiceRest {
   async sayHello(text: string, options?: AxiosRequestConfig) {
     return await this._axios.get(
       convertRouteParamsToUrlString(apiConstants["Say hello"], { text }),
-      mergeOptions4AuthHeaders(this.token ?? "", options),
+      mergeOptions4AuthHeaders(this.token, options),
     );
   }
 }
