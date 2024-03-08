@@ -21,4 +21,15 @@ type RecursivelyExtractPathParams<T extends string> =
 export function convertRouteParamsToUrlString<U extends string>(
   url: U,
   params: RecursivelyExtractPathParams<U>,
-) {}
+) {
+  let _url = url.toString();
+
+  if (Object.keys(params).length === 0) {
+    return _url;
+  }
+
+  for (let rp of Object.entries(params))
+    _url = _url.replace(`:${rp[0]}`, rp[1] as string);
+
+  return _url;
+}
