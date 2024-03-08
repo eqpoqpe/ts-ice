@@ -2,6 +2,31 @@
 
 coming soon..
 
+# Examples
+
+```typescript
+import { ReiceRest, convertRouteParamsToUrlString } from "reice";
+
+const apiConstants = {
+  "Say hello": "say/:text" as const,
+};
+
+class MyClient extends ReiceRest {
+  async sayHello(text: string) {
+    return await this._axios.get(
+      convertRouteParamsToUrlString(apiConstants["Say hello"], { text }),
+    );
+  }
+}
+
+const myClient = new MyClient({
+  instance: axios.create(),
+  baseURL: "https://api.example.com",
+});
+
+await myClient.sayHello("hello");
+```
+
 ## Contributing
 
 We welcome contributions to enhance the functionality and usability of this utility. Feel free to submit issues for bug reports or feature requests, and create pull requests to suggest improvements or fixes.
