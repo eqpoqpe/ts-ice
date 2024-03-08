@@ -7,7 +7,6 @@ coming soon..
 Easily define your client
 
 ```typescript
-import axios from "axios";
 import { ReiceRest, convertRouteParamsToUrlString } from "reice";
 
 const apiConstants = {
@@ -21,6 +20,12 @@ export class MyClient extends ReiceRest {
     );
   }
 }
+```
+
+Now say 👋
+
+```typescript
+import axios from "axios";
 
 const myClient = new MyClient({
   instance: axios.create(),
