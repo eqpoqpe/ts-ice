@@ -1,4 +1,4 @@
-# Reice
+# 🍨 Reice
 
 coming soon..
 
