@@ -47,5 +47,13 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "bugs": {
+    "url": "https://github.com/eqpoqpe/reice/issues"
+  },
+  "homepage": "https://github.com/eqpoqpe/reice",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eqpoqpe/reice"
   }
 }
