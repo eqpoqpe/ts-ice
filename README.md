@@ -2,6 +2,18 @@
 
 coming soon..
 
+## Usage
+
+Add the following code to your project `tsconfig.json`.
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+  }
+}
+```
+
 ## Examples
 
 Easily define your client
