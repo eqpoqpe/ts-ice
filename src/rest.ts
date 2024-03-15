@@ -6,7 +6,7 @@ export interface Rest {
   interceptors(fn: InterceptorsFn): void;
 }
 
-export abstract class ReiceRest implements Rest {
+export class ReiceRest implements Rest {
   public readonly _axios: Axios;
 
   constructor(config: RestCreateDefaults) {
