@@ -12,18 +12,14 @@ const apiConstants = {
 export class MyClient extends ReiceRest {
   private _token: string = "";
 
-  public get token(): string {
-    return this._token;
-  }
-
-  public set token(value) {
-    this._token = value;
+  token(v: string) {
+    this._token = v;
   }
 
   async sayHello(text: string, options?: AxiosRequestConfig) {
     return await this._axios.get(
       convertRouteParamsToUrlString(apiConstants["Say hello"], { text }),
-      mergeOptions4AuthHeaders(this.token, options),
+      mergeOptions4AuthHeaders(this._token, options),
     );
   }
 }
