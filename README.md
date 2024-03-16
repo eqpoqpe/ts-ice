@@ -4,15 +4,7 @@ coming soon..
 
 ## Usage
 
-Add the following code to your project `tsconfig.json`.
-
-```json
-{
-  "compilerOptions": {
-    "moduleResolution": "Bundler",
-  }
-}
-```
+Firstly, set `compilerOptions.moduleResolution` be `Bundler` to your project `tsconfig.json`.
 
 ## Examples
 
