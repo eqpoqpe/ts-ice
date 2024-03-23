@@ -1,5 +1,5 @@
 export {};
-import { Axios } from "axios";
+import axios, { Axios } from "axios";
 import { InterceptorsFn, RestCreateDefaults } from "./types";
 
 export interface Rest {
@@ -21,4 +21,6 @@ export class ReiceRest implements Rest {
   interceptors(fn: InterceptorsFn): void {
     fn(this._axios.interceptors);
   }
+
+  static createInstance = axios.create;
 }
