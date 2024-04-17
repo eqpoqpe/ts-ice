@@ -1,26 +1,15 @@
-export {};
-import axios, { Axios } from "axios";
-import { InterceptorsFn, RestCreateDefaults } from "./types";
+import { RestCreateDefaults } from "./types";
 
-export interface Rest {
-  interceptors(fn: InterceptorsFn): void;
-}
+// export interface Rest<T> {
+//   interceptors(fn: T): void;
+// }
 
-export class ReiceRest implements Rest {
-  public readonly _axios: Axios;
+export class ReiceRest<T> {
+  private readonly _request: T;
 
-  constructor(config: RestCreateDefaults) {
-    const { adapter, baseURL, instance } = config;
+  constructor(config: RestCreateDefaults<T>) {
+    const { instanceCreateFn, ...options } = config;
 
-    this._axios = instance;
-
-    if (adapter) this._axios.defaults["adapter"] = adapter;
-    if (baseURL) this._axios.defaults["baseURL"] = baseURL;
+    this._request = instanceCreateFn(options);
   }
-
-  interceptors(fn: InterceptorsFn): void {
-    fn(this._axios.interceptors);
-  }
-
-  static createInstance = axios.create;
 }

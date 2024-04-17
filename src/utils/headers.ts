@@ -1,12 +1,8 @@
-import { AxiosRequestConfig } from "axios";
 import { defu } from "defu";
 
-export function mergeOptions4AuthHeaders(
+export function mergeOptions4AuthHeaders<T extends object>(
   sessionKey: string,
-  options: AxiosRequestConfig | undefined,
+  options: T | undefined,
 ) {
-  return defu(
-    { headers: { Authorization: `${sessionKey}` } } as AxiosRequestConfig,
-    options,
-  );
+  return defu({ headers: { Authorization: `${sessionKey}` } } as T, options);
 }
