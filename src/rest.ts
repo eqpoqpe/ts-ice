@@ -4,10 +4,10 @@ import { RestCreateDefaults } from "./types";
 //   interceptors(fn: T): void;
 // }
 
-export class ReiceRest<T> {
-  private readonly _request: T;
+export class ReiceRest<T, H extends object> {
+  public readonly _request: T;
 
-  constructor(config: RestCreateDefaults<T>) {
+  constructor(config: RestCreateDefaults<T, H>) {
     const { instanceCreateFn, ...options } = config;
 
     this._request = instanceCreateFn(options);

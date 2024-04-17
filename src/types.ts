@@ -1,8 +1,8 @@
-type InstanceCreateFn<T> = {
-  (options: Pick<RestCreateDefaults<T>, "baseURL">): T;
+type InstanceCreateFn<T, H> = {
+  (options: Pick<RestCreateDefaults<T, H>, "baseURL">): T;
 };
-export type RestCreateDefaults<T> = {
+export type RestCreateDefaults<T, H extends object> = {
   baseURL: string;
-  instanceCreateFn: InstanceCreateFn<T>;
-  // headers: H;
+  instanceCreateFn: InstanceCreateFn<T, H>;
+  headers?: H;
 };
