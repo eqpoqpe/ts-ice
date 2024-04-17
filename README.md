@@ -11,17 +11,13 @@ Firstly, set `compilerOptions.moduleResolution` be `Bundler` to your project `ts
 Easily define your client
 
 ```typescript
-import { ReiceRest, convertRouteParamsToUrlString } from "reice";
-
-const apiConstants = {
-  "Say hello": "say/:text" as const,
+type MyRequest = {
+  <T, H extends object>(data: T, headers: H): Promise<Response>;
 };
 
-export class MyClient extends ReiceRest {
-  async sayHello(text: string) {
-    return await this._axios.get(
-      convertRouteParamsToUrlString(apiConstants["Say hello"], { text }),
-    );
+class SampleClient extends ReiceRest<MyRequest> {
+  async hello(message: string) {
+    return await this._request(message, {});
   }
 }
 ```
@@ -29,14 +25,18 @@ export class MyClient extends ReiceRest {
 Now say 👋
 
 ```typescript
-import axios from "axios";
+const sampleClient = new SampleClient({
+  instanceCreateFn(options) {
+    return async (data) => {
+      const { baseURL } = options;
 
-const myClient = new MyClient({
-  instance: axios.create(),
-  baseURL: "https://api.example.com",
+      return await fetch(baseURL);
+    };
+  },
+  baseURL: "http://127.0.0.1:3000",
 });
 
-await myClient.sayHello("hello");
+await sampleClient.hello("");
 ```
 
 👉 [more examples](./examples/)
