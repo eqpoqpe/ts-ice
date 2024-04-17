@@ -33,7 +33,7 @@ const sampleClient = new SampleClient({
       return await fetch(baseURL);
     };
   },
-  baseURL: "http://127.0.0.1:3000",
+  baseURL: "http://api.example.com",
 });
 
 await sampleClient.hello("");
