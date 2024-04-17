@@ -1,10 +1,8 @@
-import { Axios, CreateAxiosDefaults, AxiosRequestConfig } from "axios";
-
-export type InterceptorsFn = {
-  (ors: Axios["interceptors"]): void;
+type InstanceCreateFn<T, H> = {
+  (options: Pick<RestCreateDefaults<T, H>, "baseURL">): T;
 };
-
-export type RestCreateDefaults = {
-  instance: Axios;
-} & Pick<CreateAxiosDefaults, "baseURL" | "adapter">;
-export type ReiceRequestConfig = AxiosRequestConfig;
+export type RestCreateDefaults<T, H extends object> = {
+  baseURL: string;
+  instanceCreateFn: InstanceCreateFn<T, H>;
+  headers?: H;
+};
