@@ -17,7 +17,7 @@ type MyRequest = {
 
 class SampleClient extends ReiceRest<MyRequest> {
   async hello(message: string) {
-    return await this._request(message, {});
+    return await this._request({ message }, {});
   }
 }
 ```
@@ -30,7 +30,7 @@ const sampleClient = new SampleClient({
     return async (data) => {
       const { baseURL } = options;
 
-      return await fetch(baseURL);
+      return await fetch(baseURL, { body: JSON.stringify(data) });
     };
   },
   baseURL: "http://api.example.com",
