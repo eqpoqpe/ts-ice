@@ -14,8 +14,11 @@ Easily define your client
 type MyRequest = {
   <T, H extends object>(data: T, headers: H): Promise<Response>;
 };
+type MyHeader = {
+  Authorization: string;
+};
 
-class SampleClient extends ReiceRest<MyRequest> {
+class SampleClient extends ReiceRest<MyRequest, MyHeader> {
   async hello(message: string) {
     return await this._request({ message }, {});
   }
