@@ -1,8 +1,12 @@
 import { defu } from "defu";
 
-export function mergeOptions4AuthHeaders<T extends object>(
-  sessionKey: string,
+export type Headers = Record<string, string>;
+export function mergeOptions4AuthHeaders<T extends Headers>(
+  authKey: string,
   options: T | undefined,
 ) {
-  return defu({ headers: { Authorization: `${sessionKey}` } } as T, options);
+  return defu(
+    { headers: { Authorization: `${authKey}` } } as unknown as T,
+    options,
+  );
 }

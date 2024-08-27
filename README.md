@@ -1,6 +1,6 @@
-# Reice
+# ts-ice
 
-coming soon..
+Maybe you need it
 
 ## Usage
 
@@ -12,15 +12,15 @@ Easily define your client
 
 ```typescript
 type MyRequest = {
-  <T, H extends object>(data: T, headers: H): Promise<Response>;
+  <T, H extends Record<string, string>>(data: T, headers: H): Promise<Response>;
 };
 type MyHeader = {
   Authorization: string;
 };
 
-class SampleClient extends ReiceRest<MyRequest, MyHeader> {
+class SampleClient extends IceRest<MyRequest, MyHeader> {
   async hello(message: string) {
-    return await this._request({ message }, {});
+    return await this.request({ message }, {});
   }
 }
 ```

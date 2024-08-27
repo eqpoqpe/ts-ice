@@ -1,2 +1,2 @@
-export * from "./headers";
+export { mergeOptions4AuthHeaders } from "./headers";
 export * from "./route-params";
