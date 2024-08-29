@@ -1,6 +1,6 @@
-# ts-ice
+# TS ice
 
-Maybe you need it
+🍨 The easy way to make your clear REST client library.
 
 ## Usage
 
