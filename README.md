@@ -4,7 +4,9 @@
 
 ## Usage
 
-Firstly, set `compilerOptions.moduleResolution` be `Bundler` to your project `tsconfig.json`.
+```bash
+npm install ts-ice
+```
 
 ## Examples
 
